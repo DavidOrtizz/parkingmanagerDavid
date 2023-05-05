@@ -1,5 +1,6 @@
 package com.hormigo.david.parkingmanager.user.presentation;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -51,21 +52,31 @@ public class UserIntegrationTest {
   }
 
   @Test
-  public void checkUser() {
-    String url = "http://localhost:" + port + "user/list";
+  public void checkUserList() {
+    String url = "http://localhost:" + port + "users";
     chromeDriver.get(url);
     String titleUser = chromeDriver.getTitle();
-    assertEquals("Usuarios", titleUser);
     WebElement createButton = chromeDriver.findElement(By.id("users-button-create"));
-    assertNotNull(createButton);
+    WebElement actualHeading = chromeDriver.findElement(By.id("users-title"));
+    WebElement table = chromeDriver.findElement(By.id("table"));
+    String actualHeadingText = actualHeading.getText();
+
+    assertAll("Comprobar que la lista de usuarios se muestra",
+    () -> {assertNotNull(createButton);},
+    () -> {assertEquals("Usuarios", titleUser);},
+    () -> {assertEquals("Usuarios", actualHeadingText);},
+    () -> {assertNotNull(table);}
+    );
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
-    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
-    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertNotNull(sorteoButton);
+    assertAll("Comprobar botones del menu",
+    () -> {assertNotNull(inicioButton);},
+    () -> {assertNotNull(usuariosButton);},
+    () -> {assertNotNull(sorteoButton);}
+    );
 
     chromeDriver.quit();
   }
@@ -107,11 +118,13 @@ public class UserIntegrationTest {
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
-    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
-    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertNotNull(sorteoButton);
+    assertAll("Comprobar botones del menu",
+    () -> {assertNotNull(inicioButton);},
+    () -> {assertNotNull(usuariosButton);},
+    () -> {assertNotNull(sorteoButton);}
+    );
 
     chromeDriver.quit();
   }
@@ -127,11 +140,13 @@ public class UserIntegrationTest {
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
-    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
-    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertNotNull(sorteoButton);
+    assertAll("Comprobar botones del menu",
+    () -> {assertNotNull(inicioButton);},
+    () -> {assertNotNull(usuariosButton);},
+    () -> {assertNotNull(sorteoButton);}
+    );
 
     chromeDriver.quit();
   }
@@ -149,11 +164,13 @@ public class UserIntegrationTest {
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
-    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
-    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertNotNull(sorteoButton);
+    assertAll("Comprobar botones del menu",
+    () -> {assertNotNull(inicioButton);},
+    () -> {assertNotNull(usuariosButton);},
+    () -> {assertNotNull(sorteoButton);}
+    );
 
     chromeDriver.quit();
   }
