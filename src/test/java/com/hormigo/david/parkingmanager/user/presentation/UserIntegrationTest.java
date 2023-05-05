@@ -96,7 +96,6 @@ public class UserIntegrationTest {
     assertNotNull(segundoApellidoLabel);
     WebElement segundoApellidoText = chromeDriver.findElement(By.id("user-create-field-lastname2"));
     segundoApellidoText.sendKeys("Corchero");
-    ;
     // Rol
     WebElement rolLabel = chromeDriver.findElement(By.className("label"));
     assertNotNull(rolLabel);
