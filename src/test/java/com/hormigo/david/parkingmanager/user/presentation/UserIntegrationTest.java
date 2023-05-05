@@ -48,6 +48,16 @@ public class UserIntegrationTest {
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
     assertNotNull(sorteoButton);
 
+    inicioButton.click();
+    String titleInicio = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Inicio", titleInicio);
+    usuariosButton.click();
+    String titleUsuarios = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Usuarios", titleUsuarios);
+    sorteoButton.click();
+    String titleSorteo = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Sorteo", titleSorteo);
+
     chromeDriver.quit();
   }
 
@@ -70,13 +80,21 @@ public class UserIntegrationTest {
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
+    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
+    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertAll("Comprobar botones del menu",
-    () -> {assertNotNull(inicioButton);},
-    () -> {assertNotNull(usuariosButton);},
-    () -> {assertNotNull(sorteoButton);}
-    );
+    assertNotNull(sorteoButton);
+
+    inicioButton.click();
+    String titleInicio = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Inicio", titleInicio);
+    usuariosButton.click();
+    String titleUsuarios = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Usuarios", titleUsuarios);
+    sorteoButton.click();
+    String titleSorteo = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Sorteo", titleSorteo);
 
     chromeDriver.quit();
   }
@@ -114,17 +132,27 @@ public class UserIntegrationTest {
     assertNotNull(rolFiel);
     // Boton de crear
     WebElement createButton = chromeDriver.findElement(By.id("user-create-button-submit"));
+    createButton.click();
     assertNotNull(createButton);
+
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
+    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
+    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertAll("Comprobar botones del menu",
-    () -> {assertNotNull(inicioButton);},
-    () -> {assertNotNull(usuariosButton);},
-    () -> {assertNotNull(sorteoButton);}
-    );
+    assertNotNull(sorteoButton);
+    
+    inicioButton.click();
+    String titleInicio = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Inicio", titleInicio);
+    usuariosButton.click();
+    String titleUsuarios = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Usuarios", titleUsuarios);
+    sorteoButton.click();
+    String titleSorteo = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Sorteo", titleSorteo);
 
     chromeDriver.quit();
   }
@@ -136,17 +164,27 @@ public class UserIntegrationTest {
     String titleDraw = chromeDriver.getTitle();
     assertEquals("Sorteos", titleDraw);
     WebElement createButton = chromeDriver.findElement(By.className("button is-primary"));
+    createButton.click();
     assertNotNull(createButton);
+
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
+    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
+    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertAll("Comprobar botones del menu",
-    () -> {assertNotNull(inicioButton);},
-    () -> {assertNotNull(usuariosButton);},
-    () -> {assertNotNull(sorteoButton);}
-    );
+    assertNotNull(sorteoButton);
+    
+    inicioButton.click();
+    String titleInicio = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Inicio", titleInicio);
+    usuariosButton.click();
+    String titleUsuarios = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Usuarios", titleUsuarios);
+    sorteoButton.click();
+    String titleSorteo = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Sorteo", titleSorteo);
 
     chromeDriver.quit();
   }
@@ -160,17 +198,26 @@ public class UserIntegrationTest {
     WebElement descripcionText = chromeDriver.findElement(By.id("draw-field-description"));
     descripcionText.sendKeys("Descripcion del sorteo");
     WebElement crearDraw = chromeDriver.findElement(By.id("draw-button-submit"));
+    crearDraw.click();
     assertNotNull(crearDraw);
 
     // Comprobación de los botones del menu
     WebElement inicioButton = chromeDriver.findElement(By.id("to-home-link"));
+    assertNotNull(inicioButton);
     WebElement usuariosButton = chromeDriver.findElement(By.id("to-users-link"));
+    assertNotNull(usuariosButton);
     WebElement sorteoButton = chromeDriver.findElement(By.id("to-draws-link"));
-    assertAll("Comprobar botones del menu",
-    () -> {assertNotNull(inicioButton);},
-    () -> {assertNotNull(usuariosButton);},
-    () -> {assertNotNull(sorteoButton);}
-    );
+    assertNotNull(sorteoButton);
+    
+    inicioButton.click();
+    String titleInicio = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Inicio", titleInicio);
+    usuariosButton.click();
+    String titleUsuarios = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Usuarios", titleUsuarios);
+    sorteoButton.click();
+    String titleSorteo = chromeDriver.getTitle(); // Comprueba el titulo
+    assertEquals("Sorteo", titleSorteo);
 
     chromeDriver.quit();
   }
