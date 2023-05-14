@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db_parking
-    username: springuser
-    password: ThePassword
+    url: jdbc:mysql://localhost:3306/aplicacion_insti
+    username: root
+    password: 
   jpa:
     hibernate:
       ddl-auto: update
