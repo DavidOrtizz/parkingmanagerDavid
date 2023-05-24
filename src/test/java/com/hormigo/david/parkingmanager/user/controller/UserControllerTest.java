@@ -15,6 +15,7 @@ import com.hormigo.david.parkingmanager.user.domain.Role;
 import com.hormigo.david.parkingmanager.user.domain.User;
 import com.hormigo.david.parkingmanager.user.service.UserService;
 import com.hormigo.david.parkingmanager.user.service.UserServiceImpl;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -50,7 +51,6 @@ public class UserControllerTest {
     @Test
     public void testAllUserRead() throws Exception { // GET /api/users
         ObjectMapper mapper = new ObjectMapper();
-
         User user = new User("dhorram948@g.educaand.es", "David", "Hormigo", "Ramírez", Role.PROFESSOR);
         ArrayList<User> usuarios = new ArrayList<>();
         usuarios.add(user);
@@ -61,5 +61,20 @@ public class UserControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().json(json));
+    }
+
+    @Test
+    public void testPositivoNegativo() throws Exception { // POST /api/users (test positivo y negativos)
+
+    }
+
+    @Test
+    public void testBorrarUser() throws Exception { // DELETE /api/users
+        this.mockMvc.perform(delete("/api/users/{id}", 2)).andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void testEditarUser() throws Exception { // PATCH /api/users/{id}
+
     }
 }
