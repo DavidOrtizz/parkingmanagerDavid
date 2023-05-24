@@ -23,28 +23,43 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
 import java.util.Optional;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class UserControllerTest {
-    
+
     @Autowired
     private MockMvc mockMvc;
     @MockBean
     private UserService userService;
 
-
     @Test
-    public void testSingleUserRead() throws Exception{
+    public void testSingleUserRead() throws Exception { // GET /api/users/{id}
         ObjectMapper mapper = new ObjectMapper();
-        User user = new User("dhorram948@g.educaand.es","David","Hormigo","Ramírez",Role.PROFESSOR);
+        User user = new User("dhorram948@g.educaand.es", "David", "Hormigo", "Ramírez", Role.PROFESSOR);
         String json = mapper.writeValueAsString(user);
         when(userService.getUser(2)).thenReturn(Optional.of(user));
         this.mockMvc.perform(get("/api/users/2"))
-                    .andDo(print())
-                    .andExpect(status().isOk())
-                    .andExpect(content().json(json));
-                    
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json(json));
+    }
 
+    @Test
+    public void testAllUserRead() throws Exception { // GET /api/users
+        ObjectMapper mapper = new ObjectMapper();
+
+        User user = new User("dhorram948@g.educaand.es", "David", "Hormigo", "Ramírez", Role.PROFESSOR);
+        ArrayList<User> usuarios = new ArrayList<>();
+        usuarios.add(user);
+        String json = mapper.writeValueAsString(usuarios);
+        json = "{ \"_embedded\": {\"userList\":" + json + "}}";
+        when(userService.getAll()).thenReturn(usuarios);
+        this.mockMvc.perform(get("/api/users"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json(json));
     }
 }
