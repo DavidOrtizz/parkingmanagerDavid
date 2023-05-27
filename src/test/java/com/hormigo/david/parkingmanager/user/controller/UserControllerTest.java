@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hormigo.david.parkingmanager.user.domain.Role;
 import com.hormigo.david.parkingmanager.user.domain.User;
+import com.hormigo.david.parkingmanager.user.domain.UserDao;
 import com.hormigo.david.parkingmanager.user.service.UserService;
 import com.hormigo.david.parkingmanager.user.service.UserServiceImpl;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -67,11 +68,18 @@ public class UserControllerTest {
     public void testBorrarUser() throws Exception { // DELETE /api/users
         this.mockMvc.perform(delete("/api/users/{id}", 2)).andExpect(status().isNoContent());
     }
-    
 
     @Test
-    public void testComprobarTodoCorrecto() throws Exception { // DELETE /api/users
-
+    public void testComprobarTodoCorrecto() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        UserDao dao = new UserDao("da@correo.es", "David", "Hormigo", "Ramírez", Role.PROFESSOR);
+        String json = mapper.writeValueAsString(dao);
+        when(this.userService.register(any(UserDao.class)))
+                .thenReturn(new User("da@correo.es", "David", "Hormigo", "Ramírez", Role.PROFESSOR));
+        this.mockMvc.perform(post("/api/users")
+                .contentType("application/json").content(json))
+                .andDo(print())
+                .andExpect(status().isCreated());
     }
 
     @Test
@@ -84,13 +92,11 @@ public class UserControllerTest {
 
     }
 
-    
     @Test
     public void testEmailNulo() throws Exception { // POST /api/users (test positivo y negativos)
 
     }
 
-    
     @Test
     public void testNombreNulo() throws Exception { // POST /api/users (test positivo y negativos)
 
