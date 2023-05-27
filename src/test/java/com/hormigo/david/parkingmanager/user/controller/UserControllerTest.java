@@ -16,12 +16,11 @@ import com.hormigo.david.parkingmanager.user.domain.User;
 import com.hormigo.david.parkingmanager.user.domain.UserDao;
 import com.hormigo.david.parkingmanager.user.service.UserService;
 import com.hormigo.david.parkingmanager.user.service.UserServiceImpl;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -90,7 +89,7 @@ public class UserControllerTest {
 
     @Test
     public void testEmailDuplicado() throws Exception { // POST /api/users (test positivo y negativos)
-
+        
     }
 
     @Test
