@@ -18,6 +18,7 @@ import com.hormigo.david.parkingmanager.user.service.UserService;
 import com.hormigo.david.parkingmanager.user.service.UserServiceImpl;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
