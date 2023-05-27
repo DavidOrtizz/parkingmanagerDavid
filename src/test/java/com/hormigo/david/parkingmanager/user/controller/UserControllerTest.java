@@ -64,17 +64,40 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testPositivoNegativo() throws Exception { // POST /api/users (test positivo y negativos)
-
-    }
-
-    @Test
     public void testBorrarUser() throws Exception { // DELETE /api/users
         this.mockMvc.perform(delete("/api/users/{id}", 2)).andExpect(status().isNoContent());
+    }
+    
+
+    @Test
+    public void testComprobarTodoCorrecto() throws Exception { // DELETE /api/users
+
     }
 
     @Test
     public void testEditarUser() throws Exception { // PATCH /api/users/{id}
+
+    }
+
+    @Test
+    public void testEmailDuplicado() throws Exception { // POST /api/users (test positivo y negativos)
+
+    }
+
+    
+    @Test
+    public void testEmailNulo() throws Exception { // POST /api/users (test positivo y negativos)
+
+    }
+
+    
+    @Test
+    public void testNombreNulo() throws Exception { // POST /api/users (test positivo y negativos)
+
+    }
+
+    @Test
+    public void testApellidoNulo() throws Exception { // POST /api/users (test positivo y negativos)
 
     }
 }
